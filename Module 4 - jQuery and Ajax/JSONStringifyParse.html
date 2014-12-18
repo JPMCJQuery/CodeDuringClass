@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery - JSON Stringify Parse</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+		<script>
+			$(document).ready(function() { 
+				var object = { 	firstName: "Fred", 
+								lastName: "Flintstone",
+								address: { 	street: "123 Main Street", 
+											city: "Lewisville", 
+											state: "TX" }
+				};
+				var json = JSON.stringify(object);
+				$("#getJSONResults").append(json);
+				
+				var newObject = JSON.parse(json);
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - JSON Stringify Parse</h1>
+
+		<div id="getJSONResults"></div>
+		
+	</body>
+</html>

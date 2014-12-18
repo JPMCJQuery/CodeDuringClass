@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery - Event Shorthand Methods</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+		<script>
+			function imgMouseEnter(event) {
+				$(this).css("opacity", "0.5");
+			}
+			function imgMouseOut(event) {
+				$(this).css("opacity", "1");
+			}
+			function imgHandleMouse(event) {
+				if (event.type == "mouseenter")	$(this).css("opacity", "0.5");
+				else $(this).css("opacity", "1");
+			}
+						
+			$(document).ready(function() { 
+				//$("img").hover(imgMouseEnter, imgMouseOut);
+				//$("img").hover(imgHandleMouse);
+				$("img").mouseEnter(imgMouseEnter);
+			});
+
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - Event Shorthand Methods</h1>
+
+		<img src="http://geeklearn.com/courses/HTML5/images/html5.png"/>
+		<img src="http://geeklearn.com/courses/HTML5/images/css3.png"/>
+		<br><br><br>
+
+		<form action="http://www.google.com" method="get">
+			Name: <input type="text" name="q" id="q"><br><br>
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>

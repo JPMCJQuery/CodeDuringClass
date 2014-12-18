@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery - Bind Event Handlers</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+		<script>
+			function imgMouseEnter(event) {
+				$(this).css("opacity", "0.5");
+			}
+			function imgMouseOut(event) {
+				$(this).css("opacity", "1");
+			}
+			function imgHandleMouse(event) {
+				if (event.type == "mouseenter")	$(this).css("opacity", "0.5");
+				else $(this).css("opacity", "1");
+			}
+			function imgHandleMouseWithData(event) {
+				var opacity = 0.5;
+				if (event.data && event.data.opacity !== null) 
+					opacity = event.data.opacity;
+				
+				if (event.type == "mouseenter")	
+					$(this).css("opacity", opacity);
+				else $(this).css("opacity", "1");
+			}
+			
+			$(document).ready(function() { 
+				// Named Event Hander Functions
+				//$("img").on("mouseenter", imgMouseEnter);
+				//$("img").on("mouseout", imgMouseOut);
+
+				// Chaining for better performance (only 1 selector lookup)
+				$("img")
+					.on("mouseenter", imgMouseEnter)
+					.on("mouseout", imgMouseOut);
+				
+				// Anonymous Functions
+				//$("img").on("mouseenter", function() {$(this).css("opacity", "0.5");});
+				//$("img").on("mouseout", function() {$(this).css("opacity", "1");});
+				
+				// Consolidated Named Event Hander Function
+				//$("img").on("mouseenter mouseout", imgHandleMouse);
+				
+				// Turn off Event Handlers
+				//$("img").off("mouseout");
+				//$("img").off();
+				
+				// Passing Data to Event Handler
+				/*$("img").on("mouseenter mouseout", 
+						{ opacity: 0 }, imgHandleMouseWithData);*/
+				
+				
+				/*$("img")
+					.one("mouseenter", imgMouseEnter)
+					.one("mouseout", imgMouseOut);*/
+						
+				$(":submit").on("click", function(event) {
+					event.preventDefault();
+					$("img:first").trigger("mouseenter");
+				});
+			});			
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - Bind Event Handlers</h1>
+
+		<img src="http://geeklearn.com/courses/HTML5/images/html5.png"/>
+		<img src="http://geeklearn.com/courses/HTML5/images/css3.png"/>
+		<br><br><br>
+
+		<form action="http://www.google.com" method="get">
+			Name: <input type="text" name="q" id="q"><br><br>
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>

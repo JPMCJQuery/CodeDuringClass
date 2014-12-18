@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DataTables Examples</title>
+		<link href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.css" 
+			rel="stylesheet">
+		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		<script src="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+
+		<script>
+			function renderJSONData(data) {
+				var table = $("<table id='northwindTable' class='display' cellspacing='0' width='100%'/>")
+					.append($("<thead/>")	
+						.append($("<tr/>")						
+							.append("<th>Company Name</th>")
+							.append("<th>Contact Name</th>")
+							.append("<th>Country</th>")));
+				
+				$.each(data, function(index, object) {
+					table
+						.append($("<tr/>")
+							.append("<td>" + object.CompanyName + "</td>")
+							.append("<td>" + object.ContactName + "</td>")
+							.append("<td>" + object.Country + "</td>"));
+				});
+				return table;
+			}
+		
+			$(document).ready(function() {
+				$.getJSON("northwind.json", function(data) {
+					$("#northwindDiv").append(renderJSONData(data));
+					
+					//$('#northwindTable').DataTable();
+					
+					$('#northwindTable').dataTable({
+	                    "paging": true,
+	                    "ordering": true,
+	                    "info": false,
+	                    "order": [[2, "desc"]],
+	                    "lengthMenu": [10, 20],
+	                });
+					
+					console.log(".getJSON Complete!");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>DataTables Example</h1>
+		
+		<div id="northwindDiv"></div>
+	</body>
+</html>

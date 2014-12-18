@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>jQuery - Utility Methods</title>
+		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		
+		<!--  Test jQuery is Loaded -->
+		<script>
+			$(document).ready(function() {
+				console.log("jQuery Ready!");
+				
+				var myNumber = 10;
+				var myFunction = function() { return true; }
+				var myArray = ["Fred", "Barney", "Dino"];
+				var myObject = { firstName: "Fred", lastName: "Flintstone"};
+				
+				if ($.isNumeric(myArray)) console.log("It's a Number!");
+				if ($.isFunction(myFunction)) console.log("It's a Function!");
+				if ($.isArray(myArray)) console.log("It's a Array!");
+
+				if ($.inArray("Fred", myArray) !== -1 ) console.log( "Found Fred!" );
+				
+				$.each(myObject, function(key, value) { 
+					console.log(key + ": " + value); 
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - Utility Methods</h1>
+		
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery - Convenience Methods</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+		<script>
+			function renderJSONData(data) {
+				var table = $("<table border='1' cellpadding='10'/>")
+					.append($("<tr/>")
+						.append("<th>First Name</th>")
+						.append("<th>Last Name</th>")
+						.append("<th>E-Mail</th>"));
+				
+				$.each(data, function(index, object) {
+					table
+						.append($("<tr/>")
+							.append("<td>" + object.firstName + "</td>")
+							.append("<td>" + object.lastName + "</td>")
+							.append("<td>" + object.email + "</td>"));
+				});
+				return table;
+			}
+		
+			$(document).ready(function() { 
+				$.get("data.json", function(data) {
+					$("#getResults").append(renderJSONData(JSON.parse(data)));
+					console.log(".get Complete!");
+				});	
+				
+				$.getJSON("data.json", function(data) {
+					$("#getJSONResults").append(renderJSONData(data));
+					console.log(".getJSON Complete!");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - Convenience Methods</h1>
+
+		<div id="getResults"></div>
+		<div id="getJSONResults"></div>
+		
+	</body>
+</html>

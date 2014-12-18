@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>jQuery - holdReady</title>
+		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		
+		<!--  Test jQuery is Loaded -->
+		<script>
+			$.holdReady(true);
+			
+			$(document).ready(function() {
+				console.log("jQuery Ready!");
+			});
+			
+			//$.getScript("script.js", function() { $.holdReady(false); });
+			setTimeout(function() { $.holdReady(false); }, 1000);
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - holdReady</h1>
+		
+		<img src="logo.png">
+		
+	</body>
+</html>

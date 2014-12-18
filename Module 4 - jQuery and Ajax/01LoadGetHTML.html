@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery - Load and Get HTML with AJAX</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+		<script>
+			$(document).ready(function() { 
+				
+				var formData = { q: "Flintstones"};
+				
+				//$("#loadResults").load("HTMLSnippet.html");
+				$("#loadResults").load("HTMLSnippet.html",
+					function() {
+						console.log(".load Complete!");
+					});
+				
+				$.get("HTMLSnippet.html", formData,
+					function(data) {
+						$("#getResults").append(data);
+						console.log(".get Complete!");
+					});
+				
+				$.getScript("script.js", function() {
+					$("#getScriptResults").append(sayHi());
+					console.log(".getScript Complete!");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - Load and Get HTML with AJAX</h1>
+
+		<div id="getScriptResults"></div><br>
+		<div id="loadResults"></div>
+		<div id="getResults"></div>
+		
+	</body>
+</html>

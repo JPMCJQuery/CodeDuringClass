@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery UI Examples</title>
+		<link href="http://code.jquery.com/ui/1.11.2/themes/redmond/jquery-ui.css"
+			rel="stylesheet">
+		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		
+		<script>
+			$(document).ready(function() {
+				// Accordion
+				$("#accordion").accordion();
+				
+				// AutoComplete
+				var webTech = ["HTML", "CSS", "JavaScript"];
+				$("#autoComplete").autocomplete({ source: webTech });
+				
+				// DatePicker
+				$("#datePicker").datepicker();
+				
+				// Drag and Drop
+				$("#draggable").draggable( { revert: "valid" });
+				$("#droppable").droppable({
+					drop: function(event, ui) {
+						$(this)
+							.addClass("ui-state-highlight")
+							.find("p")
+							.html("Dropped!");
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery UI Examples</h1>
+		
+		Accordion<br>
+		<div id="accordion" style="width: 400px">
+			<h3>First Header</h3>
+			<div>First Content Panel</div>
+			
+			<h3>Second Header</h3>
+			<div>Second Content Panel</div>
+			
+			<h3>Third Header</h3>
+			<div>Third Content Panel</div>
+		</div><br><br>
+		
+		AutoComplete<br>
+		<input type="text" id="autoComplete"><br><br>
+		
+		DataPicker<br>
+		<input type="text" id="datePicker"><br><br>
+		
+		Drag and Drop<br>
+		<div id="draggable" style="width:150px" class="ui-widget-content">
+			<p>Drag Me</p>
+		</div>
+		
+		<div id="droppable" style="width:200px; height:200px;" 
+				class="ui-widget-header">
+			<p>Drop Here</p>
+		</div>
+	</body>
+</html>

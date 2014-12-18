@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>jQuery - jQuery Window Load</title>
+		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		
+		<!--  Test jQuery is Loaded -->
+		<script>
+			$(window).load(function() {
+				console.log("Window Load!");
+			});
+			
+			$(document).ready(function() {
+				console.log("Document Ready!");
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - jQuery Window Load</h1>
+		
+		<script>console.log("End of Body!");</script>
+	</body>
+</html>

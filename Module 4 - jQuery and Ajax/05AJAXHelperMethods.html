@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery - AJAX Helper Method</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+		<script>
+			$(document).ready(function() {
+				$( "form" ).submit(function(event) {
+					  event.preventDefault();
+					  console.log($(this).serializeArray());
+					  console.log($(this).serialize());
+					  
+					  var formData = $(this).serializeArray();
+					  var strFormData = $(this).serialize();
+					  
+					  $.ajax({
+							url:		"data.json",
+							//url:		"data.json?" + strFormData,
+							type:		"get",
+							data:		formData,
+							dataType:	"json",
+							success:	function(jsonResults) {
+											//$("#ajaxResults").append(renderJSONData(jsonResults));
+											console.log(".ajax Success!");
+										},
+							error:		function() {
+											console.log(".ajax Error :(");
+										},
+							complete:	function () {
+											console.log(".ajax Complete!");
+										}
+						});
+					  
+					  
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - AJAX Helper Method</h1>
+		
+		<form>
+			<input type="text" name="Text" value="1"><br>
+		  	<textarea name="TextArea" rows="8" cols="40">2</textarea><br>
+		  	<select name="Select">
+		    	<option value="3" selected="selected">3</option>
+		    	<option value="4">4</option>
+		    	<option value="5">5</option>
+		  	</select><br>
+		  	<input type="checkbox" name="CheckBox" value="6"><br>
+		  	<input type="submit" name="CheckBox" value="Submit"><br>
+		</form>
+	</body>
+</html>

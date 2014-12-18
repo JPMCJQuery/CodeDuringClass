@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>jQuery - JavaScript onload</title>
+		
+		<script>
+			function windowLoad() { alert("window.onload"); };
+			
+			window.onload = windowLoad();
+			window.onload = function() { 
+				alert("window.onload"); 
+			};
+		</script>
+	</head>
+	<body onload="windowLoad();">
+		<h1>jQuery - JavaScript onload</h1>
+		
+	</body>
+</html>

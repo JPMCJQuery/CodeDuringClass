@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>jQuery - Conditional Comments</title>
+		
+		<!--[if lt IE 9]>
+			<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		<![endif]-->
+		
+		<!--[if gte IE 9]><!-->
+			<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+		<!-- <![endif]-->	
+		
+		<!--  Test jQuery is Loaded -->
+		<script>
+			$(document).ready(function() {
+				console.log("jQuery " + jQuery().jquery + " Ready!");
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - Conditional Comments</h1>
+		
+	</body>
+</html>

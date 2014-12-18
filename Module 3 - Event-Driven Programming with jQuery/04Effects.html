@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery - Effects</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+		<script>
+			function imgMouseEnter(event) {
+				$("img").not(this).fadeTo("slow", 0);
+			}
+			function imgMouseOut(event) {
+				$("img").not(this).fadeTo("slow", 1);
+			}
+						
+			$(document).ready(function() { 
+				//$("img").hover(imgMouseEnter, imgMouseOut);
+				$(":submit").click(function(event) {
+					event.preventDefault();
+					
+					//$("img").toggle(10000, "swing");
+					/*$("img:first").toggle(1000, "swing", function() {
+						$("img:last").toggle(1000, "swing");
+					});*/
+					
+					//$("img").fadeToggle("slow");
+					$("img").slideToggle("slow");
+				});
+			});
+
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - Effects</h1>
+
+		<img src="http://geeklearn.com/courses/HTML5/images/html5.png"/>
+		<img src="http://geeklearn.com/courses/HTML5/images/css3.png"/>
+		<br><br><br>
+
+		<form action="http://www.google.com" method="get">
+			Name: <input type="text" name="q" id="q"><br><br>
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>

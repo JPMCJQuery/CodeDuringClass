@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery - Manipulating the DOM</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+		<script>
+			$(document).ready(function() { 
+				var newElements = 
+					$("<tr><td>New A Cell</td><td>New B Cell</td><td>New C Cell</td></tr>");
+				
+				console.log("# of Elements = " + newElements.length);				
+				console.log("# of Children = " + newElements.children().length);	
+				
+				//$("#demoTable").append(newElements);
+				//$("#demoTable").prepend(newElements);
+				//$("#demoTable").prepend(newElements.clone());
+				
+				//newElements.appendTo($("#demoTable"));
+				//newElements.prependTo($("#demoTable"));
+				//newElements.clone().prependTo($("#demoTable"));
+				
+				// Easier to Read
+				/*var newElements2 = $("<tr/>")
+					.append("<td>New A Cell</td>")
+					.append("<td>New B Cell</td>")
+					.append("<td>New C Cell</td>");
+				$("#demoTable").append(newElements2);*/
+				
+				// No Variable Needed
+				//$("#demoTable").append("<tr><td>New A Cell</td><td>New B Cell</td><td>New C Cell</td></tr>");
+				//$("<tr><td>New A Cell</td><td>New B Cell</td><td>New C Cell</td></tr>")
+				//	.appendTo("#demoTable");
+				
+				// Clone Existing Items
+				//$("tr:first").clone().appendTo($("#demoTable"));
+				
+				// Siblings
+				//$("tr:first").after(newElements);
+				//$("tr:first").before(newElements);
+				
+				//newElements.insertAfter("tr:first");
+				//newElements.insertBefore("tr:first");
+				
+				// Wrapping
+				var newElements3 = $("<div/>")
+					.css("background-color", "yellow");
+				//$("fieldset").wrap(newElements3);
+				//$("fieldset").unwrap();
+				//$("fieldset").wrapAll(newElements3);
+				//$("fieldset").wrapInner(newElements3);
+				
+				// Replace
+				//$("tr:first").replaceWith(newElements);
+				//newElements.replaceAll("tr:first");
+				
+				// Remove (data & event handlers are lost)
+				// Detach (data & event handlers are retained)
+				/*$("tr:first").remove();
+				$("tr").remove(":first");
+				$("#demoTable").append($("tr:first").remove());*/
+				
+				/*$("tr:first").detach();
+				$("tr").detach(":first");
+				$("#demoTable").append($("tr:first").detach());*/
+				
+				//$("td:first").empty();
+				//$("td:eq(3)").empty();
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - Manipulating the DOM</h1>
+
+		<nav><a href="http://www.jquery.com">jQuery</a></nav><br>
+		
+		<table id="demoTable" cellpadding="10" border="1">
+			<tr>
+				<th class="tableHeader">Column A</th>
+				<th class="tableHeader">Column B</th>
+				<th class="tableHeader">Column C</th>
+			</tr>
+			<tr>
+				<td>Cell A1</td>
+				<td>cell B1</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><b>Cell A2</b></td>
+				<td><i><b>Cell B2</b></i></td>
+				<td><i>Cell</i> <b>C</b><b>2</b></td>
+			</tr>
+			<tr>
+				<td><a href="#">Cell A3</a></td>
+				<td><a href="#bookmark" rel="bookmark">Cell B3</a></td>
+				<td><span><a href="page.html">Cell C3</a></span></td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" value="Cell A4"/>
+				</td>
+				<td>
+					<fieldset>
+						<legend>Radio Buttons:</legend>
+						<input type="radio" name="radio" checked>Item 1
+						<input type="radio" name="radio">Item 2
+						<input type="radio" name="radio">Item 3
+					</fieldset>
+					<fieldset>
+						<legend>Checkboxes:</legend>
+						<input type="checkbox" name="checkbox">Item 1</input>
+						<input type="checkbox" name="checkbox">Item 2
+						<input type="checkbox" name="checkbox">Item 3
+					</fieldset>
+				</td>
+				<td>
+					<input type="button" value="Cell C4"/>
+					<button>Cell C4</button>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

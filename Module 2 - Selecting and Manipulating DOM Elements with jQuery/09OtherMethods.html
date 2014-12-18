@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery - Other Methods</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+		<script>
+			$(document).ready(function() { 
+				var values = $("input[value]").map(function(index, element) {
+					return element.value;
+				}).toArray().join(",");
+				console.log(values);
+				
+				if ($("#demoTable").is("table")) console.log("#demoTable is a Table");
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - Other Methods</h1>
+
+		<nav><a href="http://www.jquery.com">jQuery</a></nav><br>
+		
+		<table id="demoTable" cellpadding="10" border="1">
+			<tr>
+				<th class="tableHeader">Column A</th>
+				<th class="tableHeader">Column B</th>
+				<th class="tableHeader">Column C</th>
+			</tr>
+			<tr>
+				<td>Cell A1</td>
+				<td>cell B1</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><b>Cell A2</b></td>
+				<td><i><b>Cell B2</b></i></td>
+				<td><i>Cell</i> <b>C</b><b>2</b></td>
+			</tr>
+			<tr>
+				<td><a href="#">Cell A3</a></td>
+				<td><a href="#bookmark" rel="bookmark">Cell B3</a></td>
+				<td><span><a href="page.html">Cell C3</a></span></td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" value="Cell A4"/>
+				</td>
+				<td>
+					<fieldset>
+						<legend>Radio Buttons:</legend>
+						<input type="radio" name="radio" checked>Item 1
+						<input type="radio" name="radio">Item 2
+						<input type="radio" name="radio">Item 3
+					</fieldset>
+					<fieldset>
+						<legend>Checkboxes:</legend>
+						<input type="checkbox" name="checkbox">Item 1</input>
+						<input type="checkbox" name="checkbox">Item 2
+						<input type="checkbox" name="checkbox">Item 3
+					</fieldset>
+				</td>
+				<td>
+					<input type="button" value="Cell C4"/>
+					<button>Cell C4</button>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

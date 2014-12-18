@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery - Selectors</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+		<script>
+			$(document).ready(function() { 
+				console.log("jQuery Ready!");
+				
+				var elements;
+				
+				// All Selector
+				elements = $("*");
+				elements = $("body");
+				
+				// Element Selectors
+				elements = $("a");
+				elements = $("a", "table");
+				elements = $("table a");
+				elements = $("tr");
+				elements = $("table");
+				elements = $("th");
+				elements = $("td");
+				elements = $("th, td")
+				elements = $("nav > a");
+				elements = $("i + b");
+				elements = $("i ~ b"); 
+				
+				// Class and ID Selectors
+				elements = $("#demoTable");
+				elements = $(".tableHeader");
+				
+				// JavaScript Selection
+				var htmlElements;
+				htmlElements = document.getElementById("demoTable");
+				htmlElements = document.getElementsByTagName("h1");
+				htmlElements = document.getElementsByClassName("tableHeader");
+				htmlElements = document.querySelectorAll("table a");
+				elements = $(htmlElements);
+				
+				// Contains Selector - Case Sensitive
+				elements = $(":contains('Cell')");
+				elements = $("td:contains('Cell')");
+				
+				// Parent, Sibling, Child Selectors
+				elements = $("td b");
+				elements = $("td > b");
+				elements = $("td i + b");
+				elements = $("td i ~ b");
+				elements = $("td :first-child");	// First child of a TD			
+				elements = $("td:first-child");		// First TD child
+				elements = $("td :first");
+				elements = $("td:first");
+				elements = $("td :last-child");		// Last child of a TD			
+				elements = $("td:last-child");		// Last TD child
+				elements = $("td :last");			// Last child in a TD
+				elements = $("td:last");			// Last TD
+
+				// Attribute Selectors
+				elements = $("[href]");
+				elements = $("a[href]");
+				elements = $("a:not([href])");		// Doesn't have a href attr
+				elements = $("a[href][rel=bookmark]");
+				elements = $("a[href='#']");
+				elements = $("a[href!='#']");		// Not Equal
+				elements = $("a[href^='#']");		// Starts With
+				elements = $("a[href$='#']");		// Ends With
+				elements = $("a[href*='#']");		// Contains
+
+				// Form Selectors
+				elements = $("input");
+				elements = $(":input");
+				elements = $("fieldset:has(:radio)");
+				elements = $("fieldset:has(:checkbox)");
+				elements = $("fieldset:has(:checked)");
+				elements = $("button");				
+				elements = $(":button");
+				
+				// Other Selectors
+				elements = $(":empty");
+				elements = $("td:parent");
+				elements = $("tr :not(td)");
+				elements = $("tr:even");
+				elements = $("tr:odd");
+				elements = $("tr:eq(2)");
+				elements = $("tr:gt(2)");
+				elements = $("tr:lt(2)");
+				elements = $("tr:has(b)");
+				elements = $(":header");
+				
+				elements.css("background-color", "yellow");
+			});
+		</script>
+	</head>
+	<body>
+		<h1>jQuery - Selectors</h1>
+
+		<nav><a href="http://www.jquery.com">jQuery</a></nav><br>
+		
+		<table id="demoTable" cellpadding="10" border="1">
+			<tr>
+				<th class="tableHeader">Column A</th>
+				<th class="tableHeader">Column B</th>
+				<th class="tableHeader">Column C</th>
+			</tr>
+			<tr>
+				<td>Cell A1</td>
+				<td>cell B1</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><b>Cell A2</b></td>
+				<td><i><b>Cell B2</b></i></td>
+				<td><i>Cell</i> <b>C</b><b>2</b></td>
+			</tr>
+			<tr>
+				<td><a href="#">Cell A3</a></td>
+				<td><a href="#bookmark" rel="bookmark">Cell B3</a></td>
+				<td><span><a href="page.html">Cell C3</a></span></td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" value="Cell A4">
+					<textarea>Blah Blah</textarea>
+				</td>
+				<td>
+					<fieldset>
+						<legend>Radio Buttons:</legend>
+						<input type="radio" name="radio" checked>Item 1
+						<input type="radio" name="radio">Item 2
+						<input type="radio" name="radio">Item 3
+					</fieldset>
+					<fieldset>
+						<legend>Checkboxes:</legend>
+						<input type="checkbox" name="checkbox">Item 1
+						<input type="checkbox" name="checkbox">Item 2
+						<input type="checkbox" name="checkbox">Item 3
+					</fieldset>
+				</td>
+				<td>
+					<input type="button" value="Cell C4"/>
+					<button>Cell C4</button>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
